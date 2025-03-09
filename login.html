@@ -56,14 +56,27 @@
 <body>
     <div class="login-container">
         <h2>Login</h2>
-        <form>
-            <input type="text" placeholder="Username or Email" required>
-            <input type="password" placeholder="Password" required>
+        <form id="loginForm">
+            <input type="text" id="username" placeholder="Username or Email" required>
+            <input type="password" id="password" placeholder="Password" required>
             <button type="submit">Login</button>
         </form>
         <div class="new-user">
             <p>New user? <a href="signup.html">Create an account</a></p>
         </div>
     </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            // Save user details to local storage
+            localStorage.setItem('username', username);
+            localStorage.setItem('password', password);
+            // Redirect to user.html
+            window.location.href = 'user.html';
+        });
+    </script>
 </body>
 </html>

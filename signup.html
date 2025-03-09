@@ -3,25 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Page</title>
+    <title>Sign Up for New Connection</title>
     <link rel="stylesheet" href="signup.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
     <div class="container">
-        <form id="loginForm">
-            <h2>Login</h2>
-            <label for="username">Username or Email:</label>
-            <input type="text" id="username" name="username" required><br>
+        <form id="signupForm">
+            <h2>Sign Up</h2>
+            <label for="firstName">First Name:</label>
+            <input type="text" id="firstName" name="firstName" required><br>
+
+            <label for="lastName">Last Name:</label>
+            <input type="text" id="lastName" name="lastName" required><br>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required><br>
+
+            <label for="dob">Date of Birth:</label>
+            <input type="date" id="dob" name="dob" required><br>
 
             <label for="password">Password:</label>
             <input type="password" id="password" name="password" required><br>
 
-            <input type="submit" value="Login">
+            <label for="mobile">Mobile Number:</label>
+            <input type="tel" id="mobile" name="mobile" required><br>
+
+            <input type="submit" value="Sign Up">
         </form>
-        <div class="new-user">
-            <p>New user? <a href="signup.html">Create an account</a></p>
-        </div>
     </div>
 
     <!-- Modal -->
@@ -35,10 +44,10 @@
                     </button>
                 </div>
                 <div class="modal-body" id="successMessage">
-                    You have logged in successfully!
+                    Your account has been created successfully!
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                    <button id="closeBtn" type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
@@ -48,12 +57,18 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script>
-        document.getElementById('loginForm').addEventListener('submit', function(event) {
+        document.getElementById('signupForm').addEventListener('submit', function(event) {
             event.preventDefault();
-            const username = document.getElementById('username').value;
-            const successMessage = `You have logged in successfully, ${username}!`;
+            const firstName = document.getElementById('firstName').value;
+            const lastName = document.getElementById('lastName').value;
+            const successMessage = `Your account has been created successfully, ${firstName} ${lastName}!`;
             document.getElementById('successMessage').innerText = successMessage;
             $('#successModal').modal('show');
+        });
+    </script>
+    <script>
+        document.getElementById('closeBtn').addEventListener('click', function() {
+            window.location.href = 'login.html';
         });
     </script>
 </body>

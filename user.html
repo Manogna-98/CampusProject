@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+    <link rel="stylesheet" href="user.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Welcome, <span id="displayUsername"></span></h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="login.html">Logout</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <section class="user-info">
+                <h2>User Information</h2>
+                <p><strong>Username:</strong> <span id="displayUsernameInfo"></span></p>
+                <p><strong>Password:</strong> <span id="displayPasswordInfo"></span></p>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        // Retrieve user details from local storage
+        const username = localStorage.getItem('username');
+        const password = localStorage.getItem('password');
+
+        // Display user details on the page
+        document.getElementById('displayUsername').innerText = username;
+        document.getElementById('displayUsernameInfo').innerText = username;
+        document.getElementById('displayPasswordInfo').innerText = password;
+    </script>
+</body>
+</html>
